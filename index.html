@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik walut</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header">Przelicznik walut</h1>
+        <form class="js-form">
+            <label> <span class="form__labelText">Kwota(PLN)*</span>
+                <input class="form__input js-amount" type="number" autofocus placeholder="Wprowadź kwotę" required
+                    step="0.01" min="0.01">
+            </label>
+            <p>
+                <label> <span class="form__labelText">Wybierz walutę</span>
+                    <select class="js-currency form__field">
+                        <option value="EUR">EUR - Unia Europejska</option>
+                        <option value="USD">USD - USA</option>
+                        <option value="GBP">GBP - W.Brytania</option>
+                        <option value="CHF">CHF - Szwajcaria</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <button class="form__button">Sprawdź kurs wymiany</button>
+            </p>
+            <p class="js-score form__score"></p>
+        </form>
+        <p>według średniego kursu NBP z dn. 14.11.2025</p>
+    </div>
+</body>
+
+</html>
