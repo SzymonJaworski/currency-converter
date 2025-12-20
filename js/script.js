@@ -1,37 +1,49 @@
-let formElement = document.querySelector(".js-form")
-let amountElement = document.querySelector(".js-amount")
-let currencyElement = document.querySelector(".js-currency")
-let scoreElement = document.querySelector(".js-score")
+{
+    const calculateResult = (amount, currency) => {
+        const rateEUR = 4.2274;
+        const rateUSD = 3.6376;
+        const rateGBP = 4.7854;
+        const rateCHF = 4.5918;
 
-let rateEUR = 4.2274;
-let rateUSD = 3.6376;
-let rateGBP = 4.7854;
-let rateCHF = 4.5918;
+        switch (currency) {
+            case "EUR":
+                return amount / rateEUR
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+            case "USD":
+                return amount / rateUSD
 
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
+            case "GBP":
+                return amount / rateGBP
 
+            case "CHF":
+                return amount / rateCHF
+        }
+    };
 
-    switch (currency) {
-        case "EUR":
-            score = amount / rateEUR
-            break;
+    const scoreText = (amount, score, currency) => {
+        const scoreElement = document.querySelector(".js-score")
+        scoreElement.innerText = `${amount.toFixed(2)} PLN = ${score.toFixed(2)} ${currency}`;
+    };
 
-        case "USD":
-            score = amount / rateUSD
-            break;
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
-        case "GBP":
-            score = amount / rateGBP
-            break;
+        const amountElement = document.querySelector(".js-amount")
+        const currencyElement = document.querySelector(".js-currency")
 
-        case "CHF":
-            score = amount / rateCHF
-            break;
-    }
+        const amount = +amountElement.value;
+        const currency = currencyElement.value;
 
-    scoreElement.innerText = `${amount.toFixed(2)} PLN = ${score.toFixed(2)} ${currency}`;
-})
+        const score = calculateResult(amount, currency);
+
+        scoreText(amount, score, currency);
+    };
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form")
+
+        formElement.addEventListener("submit", onFormSubmit);
+    };
+
+    init();
+}
