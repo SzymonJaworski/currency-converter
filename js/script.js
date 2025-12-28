@@ -22,7 +22,7 @@
 
     const scoreText = (amount, score, currency) => {
         const scoreElement = document.querySelector(".js-score")
-        scoreElement.innerText = `${amount.toFixed(2)} PLN = ${score.toFixed(2)} ${currency}`;
+        scoreElement.innerHTML = `${amount.toFixed(2)} PLN = <strong>${score.toFixed(2)} ${currency}</strong>`;
     };
 
     const onFormSubmit = (event) => {
