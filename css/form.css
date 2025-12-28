@@ -47,16 +47,16 @@
 }
 
 
+.form__button:active {
+    background: hwb(218 27% 39%);
+}
+
+
 .form__score {
     text-align: center;
     font-size: 22px;
     margin: 20px 0;
     min-height: 24px;
-}
-
-
-.form__scores {
-    font-weight: bold;
 }
 
 
